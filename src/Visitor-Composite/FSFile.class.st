@@ -27,7 +27,7 @@ FSFile >> searchByContents: aString [
 
 { #category : 'as yet unclassified' }
 FSFile >> searchByName: aString [
-	^(self name = aString)
+	^ (self match: name in: aString)
 		ifTrue: [ self ] 
 		ifFalse: [ nil ]
 ]

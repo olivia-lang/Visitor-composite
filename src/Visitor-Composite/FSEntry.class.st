@@ -8,6 +8,11 @@ Class {
 	#package : 'Visitor-Composite'
 }
 
+{ #category : 'as yet unclassified' }
+FSEntry >> match: aString in: aPattern [
+	^ aString beginsWith: aPattern
+]
+
 { #category : 'accessing' }
 FSEntry >> name [
 	^name

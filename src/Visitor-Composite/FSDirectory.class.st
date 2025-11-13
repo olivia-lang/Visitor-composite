@@ -39,7 +39,7 @@ FSDirectory >> searchByContents: aString [
 { #category : 'as yet unclassified' }
 FSDirectory >> searchByName: aString [
 
-	self name = aString ifTrue: [ ^ self ].
+	self match: name in: aString.
 
 	children do: [ :child |
 			| result |" on stock le resultat car child est lié avec le premier directory parcouru."
