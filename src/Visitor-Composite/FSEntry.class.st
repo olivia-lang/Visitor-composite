@@ -2,7 +2,8 @@ Class {
 	#name : 'FSEntry',
 	#superclass : 'Object',
 	#instVars : [
-		'name'
+		'name',
+		'parent'
 	],
 	#category : 'Visitor-Composite',
 	#package : 'Visitor-Composite'
@@ -26,4 +27,22 @@ FSEntry >> name: aName [
 { #category : 'as yet unclassified' }
 FSEntry >> searchByName: aString [
 	self subclassResponsibility 
+]
+
+{ #category : 'accessing' }
+FSEntry >> parent [
+	^parent
+]
+
+{ #category : 'accessing' }
+FSEntry >> parent: anEntry [
+	parent := anEntry 
+]
+
+{ #category : 'accessing' }
+FSEntry >> path [
+	parent isNil
+		ifTrue: [ ^ '/' , name ].
+		
+   ^ parent path , '/' , name
 ]
