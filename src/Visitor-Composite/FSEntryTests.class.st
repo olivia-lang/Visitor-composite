@@ -108,3 +108,18 @@ FSEntryTests >> testSearchByNameRootDirectory [
 	
 	self assert: result name equals: #rootDirectory name.
 ]
+
+{ #category : 'tests' }
+FSEntryTests >> testSearchWithPath [
+"root/
+	-- documents/
+		-- file1 --> 'je suis file1'
+"
+	|  result |
+
+	rootDirectory addEntry: documentsDirectory .
+	documentsDirectory addEntry: file1.
+	
+	result := rootDirectory searchByName: 'file1'.
+	self assert: result path equals: '/root/documents/file1'.
+]
