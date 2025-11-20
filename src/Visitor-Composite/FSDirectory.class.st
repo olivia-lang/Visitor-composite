@@ -13,6 +13,7 @@ Class {
 
 { #category : 'adding' }
 FSDirectory >> addEntry: anEntry [
+	anEntry parent: self.
 	children add: anEntry
 ]
 
